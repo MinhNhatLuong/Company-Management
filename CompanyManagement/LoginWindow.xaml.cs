@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,9 +42,20 @@ namespace CompanyManagement
             //nếu có thì cho vào
             if (result != null)
             {
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close(); //đóng cửa sổ login lại
+                if (result.Role != 4)
+                {
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    this.Close(); //đóng cửa sổ login lại
+                }
+                else
+                {
+                    MessageBox.Show("You have no permission to access this function", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            } else
+            {
+                //nếu không thì hiện thông báo
+                MessageBox.Show("Invalid Email or Password", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
