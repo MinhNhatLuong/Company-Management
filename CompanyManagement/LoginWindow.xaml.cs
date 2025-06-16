@@ -1,0 +1,50 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using BLL.Services;
+using DAL.Entities;
+
+namespace CompanyManagement
+{
+    /// <summary>
+    /// Interaction logic for LoginWindow.xaml
+    /// </summary>
+    public partial class LoginWindow : Window
+    {
+        //Bước 1: private readonly
+        private readonly AccountServices _accountServices;
+        //Bước 2: ctor
+        public LoginWindow()
+        {
+            InitializeComponent();
+            _accountServices = new AccountServices();
+        }
+        //bước 3: viết hàm liên quan
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            //thì lấy thông tin từ các textbox
+            string email = txtEmail.Text;
+            string password = txtPassword.Text;
+
+            //sau đó nhờ service kiểm tra có tài khoản đó không
+            Account? result = _accountServices.GetAccount(email, password);
+            //nếu có thì cho vào
+            if (result != null)
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close(); //đóng cửa sổ login lại
+            }
+        }
+    }
+}
