@@ -27,6 +27,9 @@ namespace CompanyManagement
         }
         private void LoadEmployees()
         {
+            //If we have comments in Datagrid, we can use these command
+            //dgEmployees.Items.Clear();
+            dgEmployees.ItemsSource = null;
             dgEmployees.ItemsSource = _employeeService.GetEmployees();
         }
 
