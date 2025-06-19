@@ -14,6 +14,6 @@ public partial class Employee
     public int? Age { get; set; }
 
     public int? DepartmentId { get; set; }
-
+    //navigation property
     public virtual Department? Department { get; set; }
 }

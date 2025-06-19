@@ -6,7 +6,20 @@
         xmlns:local="clr-namespace:CompanyManagement"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <StackPanel>
+        <DataGrid x:Name="dgEmployees" AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Width="50" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Full Name" Width="200" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Full Name" Width="*" Binding="{Binding Address}" />
+                <DataGridTextColumn Header="Address" Width="200" Binding="{Binding Age}" />
+                <DataGridTextColumn Header="Department" Width="200" Binding="{Binding Department.Name}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal">
+            <TextBox x:Name="txtSearch" Width="500" />
+            <Button x:Name="btnSearch" Content="Search" Click="btnSearch_Click" />
+        </StackPanel>
+        <Button Content="Delete" Click="btnDelete_Click" />
+    </StackPanel>
 </Window>

@@ -23,12 +23,12 @@ namespace CompanyManagement
     public partial class LoginWindow : Window
     {
         //Bước 1: private readonly
-        private readonly AccountServices _accountServices;
+        private readonly AccountService _accountServices;
         //Bước 2: ctor
         public LoginWindow()
         {
             InitializeComponent();
-            _accountServices = new AccountServices();
+            _accountServices = new AccountService();
         }
         //bước 3: viết hàm liên quan
         private void btnLogin_Click(object sender, RoutedEventArgs e)

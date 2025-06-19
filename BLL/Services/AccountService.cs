@@ -8,13 +8,13 @@ using DAL.Repositories;
 
 namespace BLL.Services
 {
-    public class AccountServices
+    public class AccountService
     {
         //Bước 1: Khai báo biến private
         private readonly AccountRepository _accountRepository;
 
         //Bước 2: Ctor
-        public AccountServices()
+        public AccountService()
         {
             _accountRepository = new AccountRepository();
         }
