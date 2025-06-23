@@ -27,5 +27,15 @@ namespace BLL.Services
         {
             _employeeRepository.DeleteAEmployee(employee);
         }
+
+        public void AddAnEmployee(Employee employee)
+        {
+            _employeeRepository.AddAnEmployee(employee);
+        }
+
+        public void UpdateAnEmployee(Employee employee)
+        {
+            _employeeRepository.UpdateAnEmployee(employee);
+        }
     }
 }

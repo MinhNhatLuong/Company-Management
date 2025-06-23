@@ -38,13 +38,14 @@ namespace CompanyManagement
             string password = txtPassword.Text;
 
             //sau đó nhờ service kiểm tra có tài khoản đó không
-            Account? result = _accountServices.GetAccount(email, password);
+            Account? account = _accountServices.GetAccount(email, password);
             //nếu có thì cho vào
-            if (result != null)
+            if (account != null)
             {
-                if (result.Role != 4)
+                if (account.Role != 4)
                 {
                     MainWindow mainWindow = new MainWindow();
+                    mainWindow.User = account; //đưa thông tin đăng nhập cho mainWindown
                     mainWindow.Show();
                     this.Close(); //đóng cửa sổ login lại
                 }

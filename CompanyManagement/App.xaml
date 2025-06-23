@@ -4,6 +4,18 @@
              xmlns:local="clr-namespace:CompanyManagement"
              StartupUri="LoginWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="Window">
+            <Setter Property="Background" Value="#FFF5F5DC"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="#FF6b705C"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="#FFFFF8EB"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#FFB38B82"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+        </Style>
     </Application.Resources>
 </Application>

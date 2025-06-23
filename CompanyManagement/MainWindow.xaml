@@ -4,15 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CompanyManagement"
-        mc:Ignorable="d"
+        mc:Ignorable="d" Loaded="Window_Loaded"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
-        <DataGrid x:Name="dgEmployees" AutoGenerateColumns="False" CanUserAddRows="False">
+        <DataGrid x:Name="dgEmployees" AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="dgEmployees_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Width="50" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Full Name" Width="200" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Full Name" Width="*" Binding="{Binding Address}" />
-                <DataGridTextColumn Header="Address" Width="200" Binding="{Binding Age}" />
+                <DataGridTextColumn Header="Address" Width="*" Binding="{Binding Address}" />
+                <DataGridTextColumn Header="Age" Width="200" Binding="{Binding Age}" />
                 <DataGridTextColumn Header="Department" Width="200" Binding="{Binding Department.Name}" />
             </DataGrid.Columns>
         </DataGrid>
@@ -20,6 +20,18 @@
             <TextBox x:Name="txtSearch" Width="500" />
             <Button x:Name="btnSearch" Content="Search" Click="btnSearch_Click" />
         </StackPanel>
-        <Button Content="Delete" Click="btnDelete_Click" />
+        <Label Content="Name" />
+        <TextBox x:Name="txtName" />
+        <Label Content="Adress" />
+        <TextBox x:Name="txtAdress" />
+        <Label Content="Age" />
+        <TextBox x:Name="txtAge" />
+        <Label Content="Department" />
+        <ComboBox  x:Name="cbDepartment" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="btnCreate" Content="Create" Width="200" Click="btnCreate_Click" />
+            <Button x:Name="btnUpdate" Content="Update" Width="200" Click="btnUpdate_Click"/>
+            <Button x:Name="btnDelete" Content="Delete" Click="btnDelete_Click" Width="200"/>
+        </StackPanel>
     </StackPanel>
 </Window>

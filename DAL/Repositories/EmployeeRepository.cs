@@ -43,5 +43,28 @@ namespace DAL.Repositories
             _dbContext.Employees.Remove(employee);
             _dbContext.SaveChanges();
         }
+
+        public void AddAnEmployee(Employee employee)
+        {
+            employee.Id = _dbContext.Employees.Max(x => x.Id) + 1;
+            _dbContext.Add(employee);
+            _dbContext.SaveChanges();
+        }
+
+        public void UpdateAnEmployee(Employee employee)
+        {
+            //xuống database kiếm
+            var employeeDb = _dbContext.Employees.Find(employee.Id);
+            //nếu có thì lấy thông tin rồi update, nếu không thì null
+            if (employeeDb != null)
+            {
+                employeeDb.Name = employee.Name;
+                employeeDb.Address = employee.Address;
+                employeeDb.DepartmentId = employee.DepartmentId;
+                employeeDb.Age = employee.Age;
+                _dbContext.Update(employeeDb);
+                _dbContext.SaveChanges();
+            }
+        }
     }
 }
